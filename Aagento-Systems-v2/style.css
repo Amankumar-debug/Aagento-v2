@@ -1,12 +1,26 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   margin: 0;
   background: #ffffff;
   overflow-x: hidden;
+  width: 100%;
   font-family: 'Arial', sans-serif;
+}
+
+/* Hide the scrollbar completely only on tablet and mobile */
+@media (max-width: 992px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 /* ── Navbar ──────────────────────────────────────────────────────────── */
@@ -506,7 +520,7 @@ body {
 }
 
 .image-3 {
-  background-image: url("assets/Whisk_047198cf63d6d0daed44d2ef48efbcc4dr.jpeg");
+  background-image: url("assets/work-flow/survey-data.png");
   background-size: cover;
   background-position: center;
 }
@@ -1957,7 +1971,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  opacity: 0.5;
+  opacity: 0.6;
   transition: all 0.3s ease;
 }
 
