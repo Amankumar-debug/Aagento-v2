@@ -72,10 +72,17 @@ function getEdgePoint(cardId, side, svgElem, offsetFraction = 0.5) {
   };
 }
 
-function drawLine(p1, p2, svg, NS) {
+function drawLine(p1, p2, svg, NS, fromSide = 'right', toSide = 'left') {
   if (!p1 || !p2) return;
-  const dx = Math.abs(p2.x - p1.x) * 0.45;
-  const d  = `M ${p1.x} ${p1.y} C ${p1.x+dx} ${p1.y}, ${p2.x-dx} ${p2.y}, ${p2.x} ${p2.y}`;
+  const dx = Math.max(Math.abs(p2.x - p1.x) * 0.45, 60);
+  
+  let cp1x = p1.x + dx;
+  let cp2x = p2.x - dx;
+  
+  if (fromSide === 'left') cp1x = p1.x - dx;
+  if (toSide === 'right') cp2x = p2.x + dx;
+
+  const d  = `M ${p1.x} ${p1.y} C ${cp1x} ${p1.y}, ${cp2x} ${p2.y}, ${p2.x} ${p2.y}`;
 
   const path = document.createElementNS(NS, 'path');
   path.setAttribute('d', d);
@@ -111,7 +118,7 @@ function drawNodeConnections() {
     NODE_CONNECTIONS.forEach(([fromId, fromSide, toId, toSide]) => {
       const p1 = getEdgePoint(fromId, fromSide, svg1);
       const p2 = getEdgePoint(toId, toSide, svg1);
-      drawLine(p1, p2, svg1, NS);
+      drawLine(p1, p2, svg1, NS, fromSide, toSide);
     });
   }
 
@@ -119,14 +126,21 @@ function drawNodeConnections() {
   const svg2 = document.getElementById('node-svg-2');
   if (svg2) {
     svg2.innerHTML = '';
-    const whyConnections = [
-      ['why-card-stable', 'right', 'why-card-text', 'left'],
-      ['why-card-stable', 'right', 'why-card-flux', 'left']
-    ];
+    const isMobile = window.innerWidth <= 768;
+    const whyConnections = isMobile 
+      ? [
+          ['why-card-stable', 'left', 'why-card-text', 'left'],
+          ['why-card-stable', 'left', 'why-card-flux', 'left']
+        ]
+      : [
+          ['why-card-stable', 'right', 'why-card-text', 'left'],
+          ['why-card-stable', 'right', 'why-card-flux', 'left']
+        ];
+        
     whyConnections.forEach(([fromId, fromSide, toId, toSide]) => {
       const p1 = getEdgePoint(fromId, fromSide, svg2);
       const p2 = getEdgePoint(toId, toSide, svg2);
-      drawLine(p1, p2, svg2, NS);
+      drawLine(p1, p2, svg2, NS, fromSide, toSide);
     });
   }
 }

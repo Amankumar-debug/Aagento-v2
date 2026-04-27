@@ -17,6 +17,7 @@ body {
   ::-webkit-scrollbar {
     display: none;
   }
+
   * {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -740,23 +741,6 @@ body {
   justify-content: flex-end;
 }
 
-.why-card {
-  width: 100%;
-  height: 50vh;
-  border-radius: 34px;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(22, 30, 51, 0.9), rgba(12, 16, 28, 0.95));
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.why-card img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
 @media (max-width: 980px) {
   .why-aagento-grid {
     grid-template-columns: 1fr;
@@ -765,6 +749,50 @@ body {
   .why-aagento-visual {
     justify-content: center;
   }
+}
+
+@media (max-width: 768px) {
+  .why-aagento-cards {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  .why-aagento-middle-column {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  .why-stable-wrapper {
+    margin-right: 0 !important;
+  }
+
+  .why-text-wrapper {
+    margin-left: 0 !important;
+  }
+
+  .why-flux-wrapper {
+    margin-left: 0 !important;
+  }
+
+  #why-card-stable {
+    width: clamp(140px, 50vw, 200px) !important;
+    height: clamp(180px, 60vw, 250px) !important;
+    max-width: calc(100vw - 100px) !important;
+  }
+
+  #why-card-text {
+    width: clamp(200px, 60vw, 300px) !important;
+    height: clamp(110px, 35vw, 160px) !important;
+    max-width: calc(100vw - 100px) !important;
+  }
+
+  #why-card-flux {
+    width: clamp(200px, 60vw, 300px) !important;
+    height: clamp(110px, 35vw, 160px) !important;
+    max-width: calc(100vw - 100px) !important;
+  }
+
+
 }
 
 @media (max-width: 680px) {
@@ -2084,18 +2112,7 @@ body {
     display: none;
   }
 
-  /* Why Aagento */
-  .why-aagento-visual>div {
-    gap: 20px !important;
-    flex-direction: column;
-  }
-
-  .why-aagento-visual .card {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 200px;
-    margin-right: 0 !important;
-  }
+  /* Why Aagento – card layout handled by the dedicated block below */
 
   /* Coming Soon Cards */
   .coming-soon-card,
@@ -2318,51 +2335,65 @@ body {
     gap: 40px;
   }
 
+  /* Remove the tablet scale so the layout flows naturally */
   .why-aagento-visual {
     transform: none;
-    /* remove tablet scaling */
-  }
-
-  .why-aagento-visual>div {
-    flex-direction: column !important;
-    gap: 24px !important;
     width: 100% !important;
+    min-height: 540px;
+    /* gives the absolute SVG overlay enough room */
+    position: relative;
   }
 
+  /* Stack Prompt card + middle column vertically, centred */
+  .why-aagento-cards {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 28px !important;
+    width: 100% !important;
+    padding: 16px 0;
+  }
+
+  /* Middle column stacks its two child cards */
   .why-aagento-middle-column {
-    width: 100%;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 20px !important;
     margin-left: 0 !important;
-    align-items: center;
+    align-items: center !important;
   }
 
+  /* Remove all inline margin offsets from card wrappers */
   .why-aagento-visual .card-wrapper {
     margin: 0 !important;
-    width: 100%;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center;
+    width: 90%;
   }
 
-  .why-aagento-visual .card {
+  /* Prompt card – full width, portrait height */
+  #why-card-stable {
     width: 100% !important;
-    max-width: 320px !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9;
-    margin: 0 !important;
+    height: 180px !important;
+    margin-right: 0 !important;
   }
 
-  .why-aagento-visual .card video {
-    position: relative !important;
+  /* 2D/GAD card */
+  #why-card-text {
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    height: 140px !important;
   }
 
-  /* Hide the connecting SVG lines on mobile since cards are stacked vertically */
+  /* 3D/BIM card */
+  #why-card-flux {
+    width: 100% !important;
+    height: 140px !important;
+  }
+
+  /* KEEP the SVG overlay visible — JS draws bezier connections left→left */
   #node-svg-2 {
-    display: none !important;
+    display: block !important;
   }
 }
+
+
 
 /* ── Global Unified Responsive Typography ────────────────────────────────── */
 /* Ensures all section headers across the website are identically sized      */
