@@ -6,16 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aagento – Bridge Intelligence Platform</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preload" as="image" href="assets/Bridges/open-web-girder.jpeg">
-  <link rel="preload" as="image" href="assets/Bridges/road-over-bridge.jpeg">
-  <link rel="preload" as="image" href="assets/Bridges/psc-slab.jpeg">
-  <link rel="preload" as="image" href="assets/Bridges/composite-girder.jpeg">
-  <link rel="preload" as="image" href="assets/Bridges/rcc-box.jpeg">
-  <link rel="preload" as="image" href="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_20_05 PM.png ">
-  <link rel="preload" as="image" href="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_21_13 PM.png">
-  <link rel="preload" as="image" href="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_24_53 PM.png">
-  <link rel="preload" as="image" href="assets/bridge-images/images/owg-elevation.png">
-  <link rel="preload" as="image" href="assets/bridge-images/images/owg-plan.png">
+
 </head>
 
 <body>
@@ -167,8 +158,8 @@
           <div class="card-wrapper">
             <div class="card-label">Prompt</div>
             <div class="card small card-image-main" id="card-color" style="height: 100px; width: 250px;">
-              <video autoplay muted loop playsinline>
-                <source src="assets\work-flow\prompt.mp4" type="video/mp4">
+              <video class="lazy-video" muted loop playsinline preload="none">
+                <source data-src="assets\work-flow\prompt.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -178,8 +169,8 @@
         <div class="card-wrapper">
           <div class="card-label"><span>3D Generation</span></div>
           <div class="card large card-image-main" id="card-stable">
-            <video autoplay muted loop playsinline>
-              <source src="assets\work-flow\3d.mp4" type="video/mp4">
+            <video class="lazy-video" muted loop playsinline preload="none">
+              <source data-src="assets\work-flow\3d.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -198,8 +189,8 @@
           <div class="card-wrapper">
             <div class="card-label"><span>2D Generation</span></div>
             <div class="card small card-image-main" id="card-flux">
-              <video autoplay muted loop playsinline>
-                <source src="assets\work-flow\2d.mp4" type="video/mp4">
+              <video class="lazy-video" muted loop playsinline preload="none">
+                <source data-src="assets\work-flow\2d.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -209,8 +200,8 @@
         <div class="card-wrapper">
           <div class="card-label"><span>Export 3D/GAD</span></div>
           <div class="card large image-5" id="card-video" style="object-fit: contain;">
-            <video autoplay muted loop playsinline>
-              <source src="assets\work-flow\export.mp4" type="video/mp4">
+            <video class="lazy-video" muted loop playsinline preload="none">
+              <source data-src="assets\work-flow\export.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -764,8 +755,8 @@
             <div class="card-label" style="color: #000;">Prompt</div>
             <div class="card large image-3 card-image-main " id="why-card-stable"
               style="height: 250px; width: 200px; margin-right: 40px; background: none;">
-              <video autoplay muted loop playsinline style="object-fit: fill; ">
-                <source src="assets/WhatsApp Video 2026-04-20 at 5.58.58 PM.mp4" type="video/mp4">
+              <video class="lazy-video" muted loop playsinline preload="none" style="object-fit: fill; ">
+                <source data-src="assets/WhatsApp Video 2026-04-20 at 5.58.58 PM.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -775,8 +766,8 @@
             <div class="card-wrapper why-text-wrapper" style="margin-left: 82px;">
               <div class="card-label" style="color: #000;">2D/GAD</div>
               <div class="card  card-image-main " id="why-card-text" style="height: 160px; width: 300px; ">
-                <video autoplay muted loop playsinline style="object-fit: cover;">
-                  <source src="assets/bridge-generation-2d.mp4" type="video/mp4">
+                <video class="lazy-video" muted loop playsinline preload="none" style="object-fit: cover;">
+                  <source data-src="assets/bridge-generation-2d.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -784,8 +775,8 @@
             <div class="card-wrapper why-flux-wrapper" style=" margin-left: 30px;">
               <div class="card-label" style="color: #000;">3D/BIM</div>
               <div class="card small card-image-main " id="why-card-flux" style="height: 150px;  width: 400px;">
-                <video autoplay muted loop playsinline>
-                  <source src="assets/bridge-generation-3d.mp4" type="video/mp4">
+                <video class="lazy-video" muted loop playsinline preload="none">
+                  <source data-src="assets/bridge-generation-3d.mp4" type="video/mp4">
                 </video>
               </div>
             </div>

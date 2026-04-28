@@ -384,6 +384,10 @@ function scrollCards(direction) {
 }
 
 
+
+
+
+
 // image preload
 const hoverImages = [
   "assets/Bridges/open-web-girder.jpeg",
@@ -399,8 +403,41 @@ const hoverImages = [
 ];
 
 const preloadedHoverImages = [];
-hoverImages.forEach(src => {
-  const img = new Image();
-  img.src = src;
-  preloadedHoverImages.push(img);
+
+// Delay image preloading until after initial page load
+window.addEventListener('load', () => {
+  hoverImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+    preloadedHoverImages.push(img);
+  });
+});
+
+/* ── Lazy Load Videos ─────────────────────────────────────────────────────── */
+document.addEventListener("DOMContentLoaded", () => {
+  const lazyVideos = document.querySelectorAll("video.lazy-video");
+
+  if ("IntersectionObserver" in window) {
+    const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(video => {
+        if (video.isIntersecting) {
+          const videoElement = video.target;
+          for (let source in videoElement.children) {
+            const videoSource = videoElement.children[source];
+            if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+              videoSource.src = videoSource.dataset.src;
+            }
+          }
+          videoElement.load();
+          videoElement.play();
+          videoElement.classList.remove("lazy-video");
+          lazyVideoObserver.unobserve(videoElement);
+        }
+      });
+    });
+
+    lazyVideos.forEach(lazyVideo => {
+      lazyVideoObserver.observe(lazyVideo);
+    });
+  }
 });
