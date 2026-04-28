@@ -385,7 +385,7 @@ function scrollCards(direction) {
 
 
 // image preload
-const images = [
+const hoverImages = [
   "assets/Bridges/open-web-girder.jpeg",
   "assets/Bridges/road-over-bridge.jpeg",
   "assets/Bridges/psc-slab.jpeg",
@@ -398,7 +398,9 @@ const images = [
   "assets/bridge-images/images/owg-plan.png"
 ];
 
-images.forEach(src => {
+const preloadedHoverImages = [];
+hoverImages.forEach(src => {
   const img = new Image();
   img.src = src;
+  preloadedHoverImages.push(img);
 });
