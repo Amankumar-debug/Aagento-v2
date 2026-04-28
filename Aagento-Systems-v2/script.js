@@ -382,3 +382,23 @@ function scrollCards(direction) {
   const cardWidth = grid.querySelector('.card').offsetWidth + 20;
   grid.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
 }
+
+
+// image preload
+const images = [
+  "assets/Bridges/open-web-girder.jpeg",
+  "assets/Bridges/road-over-bridge.jpeg",
+  "assets/Bridges/psc-slab.jpeg",
+  "assets/Bridges/composite-girder.jpeg",
+  "assets/Bridges/rcc-box.jpeg",
+  "assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_20_05 PM.png ",
+  "assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_21_13 PM.png",
+  "assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_24_53 PM.png",
+  "assets/bridge-images/images/owg-elevation.png",
+  "assets/bridge-images/images/owg-plan.png"
+];
+
+images.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
