@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aagento – Bridge Intelligence Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -150,26 +152,36 @@
         <div class="left">
           <div class="card-wrapper">
             <div class="card-label"><span>Survey Data</span></div>
-            <div class="card small image-3" id="card-rodin">
+            <div class="card small image-3" id="card-rodin" style="height: 80px;">
             </div>
           </div>
 
           <div class="card-wrapper">
             <div class="card-label"><span>Prompt</span></div>
-            <div class="card small card-image-main" id="card-color" style="height: 100px; width: 250px;">
-              <video class="lazy-video" muted loop playsinline preload="none" style="object-fit:;">
-                <source data-src="assets\WhatsApp Video 2026-04-20 at 5.58.58 PM.mp4" type="video/mp4">
+            <div class="card small card-image-main" id="card-color"
+              style="height: 220px; width: 150px; object-fit: fill; ">
+              <video class="lazy-video" muted loop playsinline preload="none" style="width: 100%; height: auto;">
+                <source data-src="assets/work-flow/prompt-video.mp4" type="video/mp4">
               </video>
             </div>
           </div>
         </div>
 
+        <!-- MID-LEFT (Processing) -->
+        <div class="mid-left" style="display: flex; flex-direction: column; justify-content: center;">
+          <div class="card-wrapper">
+            <div class="card-label"><span></span></div>
+            <div class="card text" id="card-processing" style="height: 0; width: 60px; display: flex; align-items: center; justify-content: center;">
+              <p style="text-align: center; margin: 0;">Processing</p>
+            </div>
+          </div>
+        </div>
         <!-- CENTER -->
         <div class="card-wrapper">
           <div class="card-label"><span>3D Generation</span></div>
           <div class="card large card-image-main" id="card-stable">
             <video class="lazy-video" muted loop playsinline preload="none">
-              <source data-src="assets\work-flow\3d.mp4" type="video/mp4">
+              <source data-src="assets/work-flow/3d-video-3.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -189,7 +201,7 @@
             <div class="card-label"><span>2D Generation</span></div>
             <div class="card small card-image-main" id="card-flux" style="height: 150px; width: 250px;">
               <video class="lazy-video" muted loop playsinline preload="none">
-                <source data-src="assets\work-flow\2d.mp4" type="video/mp4">
+                <source data-src="assets\work-flow\2d-video.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -198,9 +210,9 @@
         <!-- RIGHT -->
         <div class="card-wrapper">
           <div class="card-label"><span>Export 3D/GAD</span></div>
-          <div class="card large image-5" id="card-video" style="object-fit: contain;">
-            <video class="lazy-video" muted loop playsinline preload="none">
-              <source data-src="assets\work-flow\export.mp4" type="video/mp4">
+          <div class="card large image-5" id="card-video" style="height: 250px; width: 150px;">
+            <video class="lazy-video" muted loop playsinline preload="none" style="width: 100%; height: auto;">
+              <source data-src="assets\work-flow\export-video.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -665,57 +677,35 @@
       <h2 class="section-title">From Components to Complete Bridges</h2>
       <p class="section-subtitle">Create precise 2D components and full bridge structures with a seamless flow from
         survey input to approval-ready outputs.</p>
+
+
     </div>
 
 
-    <div class="bridge-overlay">
-      <div class="viewer">
-        <img id="mainImage" src="assets/Bridges/psc-slab.jpeg" alt="bridge" />
+
+    <div id="bridge-gallery-section" style="min-height: auto; padding-top: 40px; background: transparent;">
+      <!-- Bridge type selector -->
+      <div class="type-bar" id="typeBar" style="margin: 0 auto 40px auto; width: max-content;"></div>
+
+      <!-- 3D Carousel -->
+      <div class="scene" id="scene" style="margin: 0 auto;">
+        <button class="nav nav-l" id="prev" style="display: none;">&#8592;</button>
+        <div class="track" id="track"></div>
+        <button class="nav nav-r" id="next" style="display: none;">&#8594;</button>
       </div>
 
+      <!-- Info strip -->
+      <!-- <div class="info-bar" style="justify-content: center; margin-top: 20px;">
+        <span class="info-title" id="infoTitle"></span>
+        <div class="info-sep"></div>
+        <span class="info-desc" id="infoDesc"></span>
+      </div> -->
 
-      <!-- Tools -->
-      <div class="tool" style="top:60%; right:5%" data-img="assets/Bridges/open-web-girder.jpeg">Open Web Girder</div>
-      <div class="tool" style="top:40%; right:5%" data-img="assets/Bridges/road-over-bridge.jpeg">
-        Road Over Bridge</div>
-      <div class="tool" style="top:80%; right:10%" data-img="assets/Bridges/psc-slab.jpeg">
-        PSC Slab</div>
-      <div class="tool" style="top:48%; right:20%" data-img="assets/Bridges/composite-girder.jpeg">
-        Composite Girder</div>
-      <div class="tool" style="top:70%; right:20%" data-img="assets/Bridges/rcc-box.jpeg">
-        RCC Box</div>
-
-      <div class="tool" style="top:60%; left:5%"
-        data-img="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_20_05 PM.png ">PCB Slab Elevation</div>
-      <div class="tool" style="top:40%; left:5%"
-        data-img="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_21_13 PM.png">Bridge Cross Sectinal</div>
-      <div class="tool" style="top:80%; left:10%"
-        data-img="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_24_53 PM.png">RCC Elevation</div>
-      <div class="tool" style="top:48%; left:20%" data-img="assets/bridge-images/images/owg-elevation.png">OWG Elevation
-      </div>
-      <div class="tool" style="top:70%; left:20%" data-img="assets/bridge-images/images/owg-plan.png">OWG Plan</div>
-
-      <!-- Mobile-only pill grid (desktop tools are hidden on mobile via CSS) -->
-      <div class="mobile-tool-grid">
-        <button class="mobile-tool-pill" data-img="assets/Bridges/open-web-girder.jpeg">Open Web Girder</button>
-        <button class="mobile-tool-pill" data-img="assets/Bridges/road-over-bridge.jpeg">Road Over Bridge</button>
-        <button class="mobile-tool-pill" data-img="assets/Bridges/psc-slab.jpeg">PSC Slab</button>
-        <button class="mobile-tool-pill" data-img="assets/Bridges/composite-girder.jpeg">Composite Girder</button>
-        <button class="mobile-tool-pill" data-img="assets/Bridges/rcc-box.jpeg">RCC Box</button>
-        <button class="mobile-tool-pill"
-          data-img="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_20_05 PM.png ">PCB Slab
-          Elevation</button>
-        <button class="mobile-tool-pill"
-          data-img="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_21_13 PM.png">Bridge Cross
-          Section</button>
-        <button class="mobile-tool-pill"
-          data-img="assets/bridge-images/images/ChatGPT Image Apr 23, 2026, 03_24_53 PM.png">RCC Elevation</button>
-        <button class="mobile-tool-pill" data-img="assets/bridge-images/images/owg-elevation.png">OWG Elevation</button>
-        <button class="mobile-tool-pill" data-img="assets/bridge-images/images/owg-plan.png">OWG Plan</button>
-      </div>
+      <!-- Dots -->
+      <div class="dots" id="dots" style="justify-content: center; padding-bottom: 60px;"></div>
     </div>
-
   </section>
+
 
   <!-- <section class="scroll-section">
     <div class="canvas-sticky">
@@ -729,7 +719,7 @@
 
       <!-- Left: Copy -->
       <div class="why-aagento-copy">
-        <p class="eyebrow">Why Aagento</p>
+        <p class="eyebrow">WHAT SETS THIS APART</p>
         <h2>Engineering Co-Pilot,<br>Not Just Automation</h2>
         <ul class="why-aagento-list">
           <li>Single prompt to 2D or 3D bridge generation</li>
@@ -753,9 +743,10 @@
           <div class="card-wrapper why-stable-wrapper">
             <div class="card-label" style="color: #000;"><span>Prompt</span></div>
             <div class="card large image-3 card-image-main " id="why-card-stable"
-              style="height: 250px; width: 200px; margin-right: 40px; background: none;">
-              <video class="lazy-video" muted loop playsinline preload="none" style="object-fit: fill; ">
-                <source data-src="assets/WhatsApp Video 2026-04-20 at 5.58.58 PM.mp4" type="video/mp4">
+              style="height: 250px; width: 200px; margin-right: 40px; background: rgb(255, 255, 255);">
+              <video class="lazy-video" muted loop playsinline preload="none"
+                style="height: auto; width: 100%;">
+                <source data-src="assets\work-flow\prompt-video.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -831,6 +822,15 @@ From weeks of work to real-time, approval-ready results.</p> -->
       <div class="coming-soon-card">
         <div class="coming-soon-img-wrapper">
           <img src="assets/bridge-infrastructure/bridge-monitoring.png" alt="monitoring">
+          <!-- <img src="assets\comming-soon-background-image.jpeg" alt="maintenance"> -->
+
+          <div class="coming-overlay">
+            <div class="coming-overlay-content">
+              <h2>COMING SOON</h2>
+              <p>Stay tuned</p>
+            </div>
+          </div>
+
         </div>
         <div class="coming-soon-content">
           <h3>Monitoring</h3>
@@ -843,6 +843,12 @@ From weeks of work to real-time, approval-ready results.</p> -->
       <div class="coming-soon-card">
         <div class="coming-soon-img-wrapper">
           <img src="assets/bridge-infrastructure/bridge-maintanance.png" alt="maintenance">
+          <div class="coming-overlay">
+            <div class="coming-overlay-content">
+              <h2>COMING SOON</h2>
+              <p>Stay tuned</p>
+            </div>
+          </div>
         </div>
         <div class="coming-soon-content">
           <h3>Maintenance</h3>
