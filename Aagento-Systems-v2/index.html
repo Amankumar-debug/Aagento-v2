@@ -171,7 +171,8 @@
         <div class="mid-left" style="display: flex; flex-direction: column; justify-content: center;">
           <div class="card-wrapper">
             <div class="card-label"><span></span></div>
-            <div class="card text" id="card-processing" style="height: 0; width: 60px; display: flex; align-items: center; justify-content: center;">
+            <div class="card text" id="card-processing"
+              style="height: 0; width: 60px; display: flex; align-items: center; justify-content: center;">
               <p style="text-align: center; margin: 0;">Processing</p>
             </div>
           </div>
@@ -685,7 +686,7 @@
 
     <div id="bridge-gallery-section" style="min-height: auto; padding-top: 40px; background: transparent;">
       <!-- Bridge type selector -->
-      <div class="type-bar" id="typeBar" style="margin: 0 auto 40px auto; width: max-content;"></div>
+      <div class="type-bar" id="typeBar" style="margin: 0 auto 40px auto; width: max-content; max-width: 90vw; overflow-x: auto; -webkit-overflow-scrolling: touch;"></div>
 
       <!-- 3D Carousel -->
       <div class="scene" id="scene" style="margin: 0 auto;">
@@ -744,8 +745,7 @@
             <div class="card-label" style="color: #000;"><span>Prompt</span></div>
             <div class="card large image-3 card-image-main " id="why-card-stable"
               style="height: 250px; width: 200px; margin-right: 40px; background: rgb(255, 255, 255);">
-              <video class="lazy-video" muted loop playsinline preload="none"
-                style="height: auto; width: 100%;">
+              <video class="lazy-video" muted loop playsinline preload="none" style="height: auto; width: 100%;">
                 <source data-src="assets\work-flow\prompt-video.mp4" type="video/mp4">
               </video>
             </div>
@@ -809,7 +809,7 @@
     <div class="coming-soon-grid">
       <div class="coming-soon-card">
         <div class="coming-soon-img-wrapper">
-          <img src="assets/bridge-infrastructure/bridge-planning.png" alt="planning">
+          <img src="assets/bridge-infrastructure/planning.jpeg" alt="planning" style="opacity: 1;">
         </div>
         <div class="coming-soon-content">
           <h3>Planning & Design</h3>
@@ -821,39 +821,31 @@ From weeks of work to real-time, approval-ready results.</p> -->
 
       <div class="coming-soon-card">
         <div class="coming-soon-img-wrapper">
-          <img src="assets/bridge-infrastructure/bridge-monitoring.png" alt="monitoring">
-          <!-- <img src="assets\comming-soon-background-image.jpeg" alt="maintenance"> -->
-
+          <img src="assets/bridge-infrastructure/monitoring.jpeg" alt="monitoring">
           <div class="coming-overlay">
             <div class="coming-overlay-content">
-              <h2>COMING SOON</h2>
-              <p>Stay tuned</p>
+              <h2>Coming Soon</h2>
             </div>
           </div>
-
         </div>
         <div class="coming-soon-content">
           <h3>Monitoring</h3>
           <p>Live project tracking with early risk detection—plans to living projects.</p>
-
-          <!-- <p>Real-time project visibility with live tracking and early risk detection—turning static plans into living projects.</p> -->
         </div>
       </div>
 
       <div class="coming-soon-card">
         <div class="coming-soon-img-wrapper">
-          <img src="assets/bridge-infrastructure/bridge-maintanance.png" alt="maintenance">
+          <img src="assets/bridge-infrastructure/maintanance.jpeg" alt="maintenance">
           <div class="coming-overlay">
             <div class="coming-overlay-content">
-              <h2>COMING SOON</h2>
-              <p>Stay tuned</p>
+              <h2>Coming Soon</h2>
             </div>
           </div>
         </div>
         <div class="coming-soon-content">
           <h3>Maintenance</h3>
           <p>Digital twin–driven lifecycle intelligence—structures to evolving assets.</p>
-          <!-- <p>Lifecycle intelligence with digital twins, monitoring, and maintenance insights—completed structures to evolving assets.</p> -->
         </div>
       </div>
     </div>
@@ -862,7 +854,7 @@ From weeks of work to real-time, approval-ready results.</p> -->
 
 
 
-  <section class="pre-footer-cta">
+  <section class="pre-footer-cta" id="about" >
     <div class="cta-container">
       <h2>Design Bridges Faster, Smarter</h2>
       <p>
@@ -874,7 +866,7 @@ From weeks of work to real-time, approval-ready results.</p> -->
     </div>
   </section>
 
-  <footer class="site-footer" id="about">
+  <footer class="site-footer" >
     <!-- <div class="footer-top">
       <div class="footer-brand">
         <img src="assets/Final Logo.svg" alt="Aagento Logo" class="footer-logo">

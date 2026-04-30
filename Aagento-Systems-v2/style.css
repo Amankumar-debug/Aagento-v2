@@ -2015,9 +2015,7 @@ body {
 
 
 
-.coming-soon-card:first-child {
-  opacity: 1;
-}
+
 
 .coming-soon-img-wrapper {
   width: 100%;
@@ -2031,36 +2029,65 @@ body {
 .coming-soon-img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  opacity: 0.6;
 }
 
+.coming-soon-card:first-child {
+  opacity: 1 !important;
+}
+
+
+
 /* overlay */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(200%);
+  }
+  /* 70% {
+    transform: translateX(-200%);
+  } */
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
 .coming-overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.42);
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #325ff4;
+  padding: 10px 0;
+  z-index: 10;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  opacity: 1;
 }
 
 .coming-overlay-content {
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  white-space: nowrap;
 }
 
 .coming-overlay-content h2 {
-  font-size: 36px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+  animation: slideInLeft 5s ease-in-out infinite;
 }
+  
 
 .coming-overlay-content p {
-  font-size: 14px;
-  letter-spacing: 3px;
-  opacity: 0.8;
+  display: none;
 }
+
 
 .coming-soon-content {
   text-align: left;
@@ -2854,4 +2881,62 @@ body {
 #bridge-gallery-section .track.switching .bg-card {
   transition: opacity 0.25s ease;
   opacity: 0 !important;
+}
+
+/* ── Responsive adjustments for Bridge Gallery Section ── */
+@media (max-width: 1024px) {
+  #bridge-gallery-section .track {
+    transform: scale(0.85);
+  }
+  #bridge-gallery-section .scene {
+    height: calc(var(--ch) * 0.85 + 80px);
+  }
+}
+
+@media (max-width: 768px) {
+  #bridge-gallery-section .track {
+    transform: scale(0.65);
+  }
+  #bridge-gallery-section .scene {
+    height: calc(var(--ch) * 0.65 + 80px);
+  }
+  #bridge-gallery-section .type-bar {
+    justify-content: flex-start;
+    border-radius: 12px;
+    padding: 10px;
+    /* Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  #bridge-gallery-section .type-bar::-webkit-scrollbar {
+    display: none;
+  }
+  #bridge-gallery-section .type-name {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+  #bridge-gallery-section .type-count {
+    font-size: 8px;
+  }
+  #bridge-gallery-section .header h1 {
+    font-size: clamp(36px, 8vw, 48px);
+  }
+}
+
+@media (max-width: 480px) {
+  #bridge-gallery-section .track {
+    transform: scale(0.45);
+  }
+  #bridge-gallery-section .scene {
+    height: calc(var(--ch) * 0.45 + 80px);
+  }
+  #bridge-gallery-section .type-btn {
+    min-width: 75px;
+    padding: 6px 8px;
+  }
+  #bridge-gallery-section .type-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
